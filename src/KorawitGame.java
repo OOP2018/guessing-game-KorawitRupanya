@@ -6,7 +6,7 @@ import java.util.Random;
  *
  */
 public class KorawitGame extends NumberGame {
-
+	/*properties of guessing game*/
 	private int secertnumber;
 	private int upperBound;
 	private String message = "";
@@ -21,6 +21,10 @@ public KorawitGame (int upperbound) {
 	this.secertnumber = rand.nextInt(this.upperBound)+1;
 }
 
+/**
+ * Evaluate a user's guess.Return true and the message if it is correct,false otherwise.
+ * Also send some message if the user is trying to guess the same number.
+ */
 public boolean guess(int number) {
 	count++;
 	if(number == this.secertnumber) {
@@ -41,11 +45,18 @@ public boolean guess(int number) {
 	return false;
 }
 
+/**
+ * method to get the upperbound
+ * @return upperbound of the game
+ */
 public int getUpperBound() {
 	return upperBound;
 }
 
-
+/**
+ * get the count number
+ * @return count of how many times the user have been guessing.
+ */
 public int getCount() {
 	return count ;
 }

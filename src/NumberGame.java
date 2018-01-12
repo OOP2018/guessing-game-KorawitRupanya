@@ -55,6 +55,10 @@ public class NumberGame {
 		return Integer.MAX_VALUE;  // not very helpful :-)
 	}
 	
+	/** 
+	 * Count how many times the user had guess the number
+	 * @return the number that user had been guessing
+	 */
 	public int getCount() {
 		return 0;
 	}
