@@ -1,24 +1,26 @@
 import java.util.Scanner;
 
 /** 
- *  Play guessing game on the console.
+ *  The console of guessing game on the console.
+ *  @param guess receive the number form the user.
+ *  @return message to inform the user whether their guess number is too big or too small or correct.
  */
 public class GameConsole {
 
 	/** play the game. */
-	public int play(NumberGame game) {
-		Scanner console = new Scanner(System.in);
-		
-		// describe the game
+	public int play(KorawitGame game) {
+		boolean correct;
+		int guess;
 		System.out.println( game.toString() );
+		do{
+			Scanner console = new Scanner(System.in);
+			System.out.println( game.getMessage() );
+			System.out.print("Your answer? ");
+			guess = console.nextInt();
+			correct = game.guess(guess);
+			
+		} while(!correct);
 		
-		// This is just an example.
-		System.out.println( game.getMessage() );
-		System.out.print("Your answer? ");
-		int guess = console.nextInt();
-		boolean correct = game.guess(guess);
-		System.out.println( game.getMessage() );
 		return guess;
 	}
-	
 }
