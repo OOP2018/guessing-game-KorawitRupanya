@@ -11,6 +11,7 @@ public class KorawitGame extends NumberGame {
 	private int upperBound;
 	private String message = "";
 	private ArrayList<Integer> guessingNum; 
+	private int count;
 
 public KorawitGame (int upperbound) {
 	guessingNum = new ArrayList<Integer>();
@@ -21,6 +22,7 @@ public KorawitGame (int upperbound) {
 }
 
 public boolean guess(int number) {
+	count++;
 	if(number == this.secertnumber) {
 		this.setMessage ("Right you win!");
 		return true;
@@ -31,10 +33,10 @@ public boolean guess(int number) {
 	}
 	guessingNum.add(number);
 	if(number < this.secertnumber) {
-		this.setMessage(number + "is too small.");
+		this.setMessage(number + " is too small.");
 }
 	else if(number > this.secertnumber) {
-		this.setMessage(number + "is too big.");
+		this.setMessage(number + " is too big.");
 }
 	return false;
 }
@@ -43,6 +45,16 @@ public int getUpperBound() {
 	return upperBound;
 }
 
+
+public int getCount() {
+	return count ;
+}
+
+/**
+ * toString describes the game or problem.
+ * @return description of this game or the problem to be solved.
+ */
+@Override
 public String toString() {
 	return String.format("Guess a secret number between 1 and %d",upperBound);
 }
