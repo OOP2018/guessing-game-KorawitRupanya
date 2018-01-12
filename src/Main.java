@@ -8,9 +8,16 @@ public class Main {
 		// upper limit for secret number in guessing game
 		int upperBound = 100; 
 		KorawitGame game = new KorawitGame(upperBound);
-		GameSolver ui = new GameSolver( );
+		
+		GameSolver solver = new GameSolver();
+		int onw = solver.play( game );
+		System.out.println(onw);
+		
+		GameConsole ui = new GameConsole();
 		int solution = ui.play( game );
 		System.out.println("play() returned "+solution);
+		
+		
 		
 	}
 }

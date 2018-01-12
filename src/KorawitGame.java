@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class KorawitGame extends NumberGame {
 	/*properties of guessing game*/
-	private int secertnumber;
+	private int secretnumber;
 	private int upperBound;
 	private String message = "";
 	private ArrayList<Integer> guessingNum; 
@@ -18,7 +18,7 @@ public KorawitGame (int upperbound) {
 	this.upperBound=upperbound;
 	long seed = System.nanoTime();
 	Random rand = new Random(seed);
-	this.secertnumber = rand.nextInt(this.upperBound)+1;
+	this.secretnumber = rand.nextInt(this.upperBound)+1;
 }
 
 /**
@@ -27,7 +27,7 @@ public KorawitGame (int upperbound) {
  */
 public boolean guess(int number) {
 	count++;
-	if(number == this.secertnumber) {
+	if(number == this.secretnumber) {
 		this.setMessage ("Right you win!");
 		return true;
 	}
@@ -36,10 +36,10 @@ public boolean guess(int number) {
 		return false;
 	}
 	guessingNum.add(number);
-	if(number < this.secertnumber) {
+	if(number < this.secretnumber) {
 		this.setMessage(number + " is too small.");
 }
-	else if(number > this.secertnumber) {
+	else if(number > this.secretnumber) {
 		this.setMessage(number + " is too big.");
 }
 	return false;
