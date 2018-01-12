@@ -15,9 +15,25 @@ public class GameSolver {
 	 * @return solution of NumberGame
 	 */
 	public int play(NumberGame game) {
-		int i = 1 ;
-		for (i=1;;i++) {
-			if(game.guess(i)) return i;
+	int guess;
+	
+	while(true) {
+		System.out.println( game.getMessage() );
+		System.out.println("The number is ");
+		guess = game.getUpperBound();
+		boolean correct = game.guess(guess);
+		if(correct==true) {
+			break;
 		}
+		else if (correct==false) {
+			if(game.getMessage().contains("too small")) {
+				guess += 3;
+			}
+			if(game.getMessage().contains("too big")) {
+				guess -= 2;
+			}
+		}
+	}
+	return guess;
 	}
 }
