@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GameConsole {
 
 	/** play the game. */
-	public int play(KorawitGame game) {
+	public int play(NumberGame game) {
 		boolean correct;
 		int guess;
 		System.out.println( game.toString() );

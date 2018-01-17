@@ -15,17 +15,17 @@ public class GameSolver {
 	 * @return solution of NumberGame
 	 */
 	public int play(NumberGame game) {
-		int upper = game.getUpperBound()+1;
+		int upper = game.getUpperBound() + 1;
 		int lower = 0;
 		while (true) {
 			int find = (upper + lower) / 2;
 			if (game.guess(find)) {
 				return find;
 			}
-			if(game.getMessage().contains("too small")) {
+			if (game.getMessage().contains("too small")) {
 				lower = find;
 			}
-			if(game.getMessage().contains("too big")) {
+			if (game.getMessage().contains("too big")) {
 				upper = find;
 			}
 		}
