@@ -17,8 +17,8 @@ public class GameSolver {
 	public int play(NumberGame game) {
 		int upper = game.getUpperBound() + 1;
 		int lower = 0;
-		while (true) {
-			int find = (upper + lower) / 2;
+		int find = (upper + lower) / 2;
+		while (game.guess(find)) {
 			if (game.guess(find)) {
 				return find;
 			}
@@ -29,5 +29,6 @@ public class GameSolver {
 				upper = find;
 			}
 		}
+		return find;
 	}
 }
