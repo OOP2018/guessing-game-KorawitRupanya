@@ -18,10 +18,8 @@ public class GameSolver {
 		int upper = game.getUpperBound() + 1;
 		int lower = 0;
 		int find = (upper + lower) / 2;
-		while (game.guess(find)) {
-			if (game.guess(find)) {
-				return find;
-			}
+		while (!game.guess(find)) {
+			find = (upper + lower) / 2;
 			if (game.getMessage().contains("too small")) {
 				lower = find;
 			}
