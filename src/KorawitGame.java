@@ -11,16 +11,23 @@ public class KorawitGame extends NumberGame {
 	/* properties of guessing game */
 	private int secretnumber;
 	private int upperBound;
-	private String message = "";
 	private ArrayList<Integer> guessingNum;
 	private int count;
 
+	/**
+	 * initialize the default of the game upper bound.
+	 */
+	public KorawitGame() {
+		this(100);
+	}
+	
 	public KorawitGame(int upperbound) {
 		guessingNum = new ArrayList<Integer>();
 		this.upperBound = upperbound;
 		long seed = System.nanoTime();
 		Random rand = new Random(seed);
 		this.secretnumber = rand.nextInt(this.upperBound) + 1;
+		this.setMessage("Welcome");
 	}
 
 	/**
@@ -30,6 +37,9 @@ public class KorawitGame extends NumberGame {
 	 */
 	public boolean guess(int number) {
 		count++;
+		setChanged();
+		notifyObservers();
+		
 		if (number == this.secretnumber) {
 			this.setMessage("Right you win!");
 			return true;
