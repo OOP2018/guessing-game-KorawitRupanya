@@ -52,7 +52,7 @@ public class KorawitGame extends NumberGame {
 		if (number < this.secretnumber) {
 			this.setMessage(number + " is too small.");
 		} else if (number > this.secretnumber) {
-			this.setMessage(number + " is too big.");
+			this.setMessage(number + " is too large.");
 		}
 		return false;
 	}
