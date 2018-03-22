@@ -23,7 +23,7 @@ public class GameSolver {
 			if (game.getMessage().contains("too small")) {
 				lower = find;
 			}
-			if (game.getMessage().contains("too big")) {
+			if (game.getMessage().contains("too large")) {
 				upper = find;
 			}
 		}
